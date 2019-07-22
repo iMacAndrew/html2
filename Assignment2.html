@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment #2</title>
+
+	<style>
+		input:invalid {
+			border: 3px solid #ff0000;
+			box-shadow: 0 0 3px 3px red;
+		}
+	</style>
+
+	<script>
+	
+	// Outputs the user's input when the submit button is pressed
+
+	function submitForm() {
+		
+		var fullName = document.getElementById('nameInput').value.split(" "); 
+		var firstName = fullName[0];
+		var lastName = fullName[1];
+		
+		document.getElementById('output1').innerHTML = "First Name: " + firstName + "<br>" + "Last Name: " + lastName + "<br>";
+
+		var phoneNumber = document.getElementById('phoneInput').value.split("-");
+		var areaCode = phoneNumber[0];
+		var threeDigits = phoneNumber[1];
+		var fourDigits = phoneNumber[2];
+		var totalDigits = areaCode.length + threeDigits.length + fourDigits.length;
+
+		document.getElementById('output2').innerHTML = "Area Code: " + areaCode + "<br>";
+
+		document.getElementById('output3').innerHTML = "Digit Count: " + totalDigits + "<br>";
+
+		var emailAddress = document.getElementById('emailInput').value.split("@");
+		var userName = emailAddress[0];
+		var domain = emailAddress[1];
+
+		document.getElementById('output4').innerHTML = "Username: " + userName + "<br>";
+
+		document.getElementById('output5').innerHTML = "Domain: " + domain + "<br>";
+
+		var zipCode = document.getElementById('zipInput').value;
+		var zipCount = zipCode.length;
+
+		document.getElementById('output6').innerHTML = "Zip count: " + zipCount + "<br>";
+		
+	}
+
+	//Change theme to white
+	function changeToLight() {
+		document.body.style.backgroundColor = "white";
+		document.getElementById('myFontLabel').style.color = "black";			
+	}
+
+	//Change theme to black
+	function changeToDark() {
+		document.body.style.backgroundColor = "black";
+		document.getElementById('myFontLabel').style.color = "white";	
+		}
+	
+
+
+	</script>
+
+</head>
+<body>
+
+<div id="fullDocument">
+
+	<button type="button" onclick="changeToLight()">Light!</button>
+	<button type="button" onclick="changeToDark()">Dark!</button>
+
+	<br><br>
+
+	<label id="myFontLabel">
+	
+	<label for = "nameLabel">
+		First and Last Name:
+	</label>
+
+	<input id="nameInput"
+		placeholder="First Last"
+		pattern="[a-zA-Z]+ [a-zA-Z]+$">
+
+
+	<br><br>
+
+	<label for="phoneLabel">
+		Phone Number:
+	</label>
+
+	<input id="phoneInput" 
+		placeholder="xxx-xxx-xxxx" 
+		title="333-333-3333" 
+		pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+
+	<br><br>
+
+	<label for="emailLabel">
+		Email
+	</label>
+
+	<input id="emailInput"
+		placeholder="Example@email.com"
+		pattern="[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
+
+	<br><br>
+
+	<label for="zipLabel">
+		Zip Code
+	</label>
+
+	<input id="zipInput"
+		placeholder="12345"
+		pattern="[0-9]{5}">
+
+	<br><br>
+
+	<label id="myFontLabel">
+
+<button type="button" onclick="submitForm()">Submit!</button>
+
+<br><br>
+
+<label id="output1">
+	
+</label>
+
+<label id="output2">
+	
+</label>
+
+<label id="output3">
+	
+</label>
+
+<label id="output4">
+	
+</label>
+
+<label id="output5">
+	
+</label>
+
+<label id="output6">
+	
+</label>
+
+</div>
+
+</body>
+</html>
